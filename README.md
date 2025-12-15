@@ -48,7 +48,30 @@ as this will provide us with 1 hour of activity both before and after Angela cal
 
 - Following the chain of events by looking at more detections from Defender at 4:10:29.000 PM the was a different file and Defender blocked it
   <img width="807" height="657" alt="image" src="https://github.com/user-attachments/assets/54b2e8c2-2e84-4f59-8786-e055577dfa4a" />
-- At 
+- At 4:11:39.000 PM Event Code 50017 shows Defender was disabled, this could be the malware or user disabling it;
+    <img width="788" height="396" alt="image" src="https://github.com/user-attachments/assets/0d201fe6-8e9e-40ef-b96f-dd29335c0f76" />
+- Now we can confidently say Defender detected and blocked malware and it was disabled. Next is to find what else happened.
+- At  4:12:17.000 PM with Event Code 5000 shows Defender was enabled;
+  <img width="789" height="391" alt="image" src="https://github.com/user-attachments/assets/6ef87218-d17e-4473-850c-10c3cb193ad5" />
+
+- At 4:38:31.000 PM we see an exculsion was made to the file path \c:\Windows\Temp. This rise the question why a temporary directory is being excluded?
+Perphaps an attacker is going to upload a malware?
   
+<img width="805" height="459" alt="image" src="https://github.com/user-attachments/assets/8bb7380f-9b55-4898-8994-4c2f25adf9e2" />
 
+- 4:15:55.000 PM shows a process also being excluded
+<img width="767" height="452" alt="image" src="https://github.com/user-attachments/assets/96c14b46-d302-4b69-b0e8-86ad97ce3d3a" />
 
+# Defender Logs
+By following the chain of events we know:
+- Theres a potential starting time 16:08:11 and the potential end time 16:38:31
+- A remote shell was trying to be established based on the signature
+- C:\Windows\Temp was added to the exclusion list.
+
+# Analysis
+Windows Temp being exclude creates a baseline for this investigation. 
+- Going back to the event that occured at 1/10/24 16:15:53.000 PM and look at +/-5 minutes from this activity removing the Defender Source.
+<img width="1075" height="466" alt="image" src="https://github.com/user-attachments/assets/8b67735f-d030-4389-9d96-9549a2305e09" />
+
+- This generates 325 events which is still quite a bit of data. We can narrow by including the "temp". Which generate 10 events.
+<img width="1070" height="746" alt="image" src="https://github.com/user-attachments/assets/688b51c6-142b-4cd5-9fe9-3c13c93ec262" />
