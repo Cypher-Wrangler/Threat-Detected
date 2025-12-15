@@ -75,3 +75,10 @@ Windows Temp being exclude creates a baseline for this investigation.
 
 - This generates 325 events which is still quite a bit of data. We can narrow by including the "temp". Which generate 10 events.
 <img width="1070" height="746" alt="image" src="https://github.com/user-attachments/assets/688b51c6-142b-4cd5-9fe9-3c13c93ec262" />
+
+-  At 4:15:53.000 PM we see Event Code 4688 from Security log, which shows the process of PowerShell with a parent process of 32-bit command Prompt. The PowerShell is running a command the excludes the process of the Temp folder.
+  <img width="788" height="725" alt="image" src="https://github.com/user-attachments/assets/9aca663c-945d-41a4-9147-0b932498d468" />
+A few things makes this suspicious:
+ - Why is a 64-bit machine running a 32-bit command prompt? though common
+ - Why is command prompt spawning powershell?
+ - Why is Temp folder being excluded?
