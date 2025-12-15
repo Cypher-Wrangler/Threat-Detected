@@ -38,7 +38,17 @@ as this will provide us with 1 hour of activity both before and after Angela cal
   <img width="694" height="416" alt="image" src="https://github.com/user-attachments/assets/f674ca8e-93d5-4c49-839e-242357bd2f1f" />
 - Expanding on this event we can see EventCode 1116 for Windows Defender. This Event Code triggers if Defender detects malware or other potential unwanted software.
   <img width="659" height="321" alt="image" src="https://github.com/user-attachments/assets/0080764d-b714-4f2d-b4ad-7f3d8636cdc6" />
-- Next we can scope the environment using the Event CODE
+- Next we can scope the environment using the Event Code 1116 to look for other potential computers that Defender might have detected malware on:
+  <img width="1079" height="780" alt="image" src="https://github.com/user-attachments/assets/26c62b86-7953-43ee-84bc-1c0cb60b4cdf" />
+  and we have only 9 events all sourcing from Angela's computer.
+# Chain of events
+- Looking at the next event that happened at 4:08:40.000 PM we a message field of "Microsoft Defender Antivirus has taken action to protect this machine from malware or other potentially unwanted software". 
+  <img width="795" height="719" alt="image" src="https://github.com/user-attachments/assets/5ab1e517-97cf-4672-93cc-c9c64c7216b3" />
+- The Action Status of "No additional actions required", DOES THIS MEANS WE SHOULD STOP FROM HERE? DEFINITELY NOT. We must investigate how this malware got onto this computer.
 
+- Following the chain of events by looking at more detections from Defender at 4:10:29.000 PM the was a different file and Defender blocked it
+  <img width="807" height="657" alt="image" src="https://github.com/user-attachments/assets/54b2e8c2-2e84-4f59-8786-e055577dfa4a" />
+- At 
+  
 
 
